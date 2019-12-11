@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -32,10 +33,20 @@ public class MainActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(value_a.getText()) || TextUtils.isEmpty(value_b.getText())) {
                     Toast.makeText(getApplicationContext(), "value A / value B cannot empty.", Toast.LENGTH_LONG).show();
                 } else {
-                    int result = Integer.parseInt(value_a.getText().toString()) + Integer.parseInt(value_b.getText().toString());
+                    int result = calculate(value_a.getText(), value_b.getText());
                     value_result.setText(""+result);
                 }
             }
         });
+    }
+
+    /**
+     * calculate
+     * @param value_a
+     * @param value_b
+     * @return
+     */
+    private int calculate(Editable value_a, Editable value_b) {
+        return Integer.parseInt(value_a.toString()) + Integer.parseInt(value_b.toString());
     }
 }
